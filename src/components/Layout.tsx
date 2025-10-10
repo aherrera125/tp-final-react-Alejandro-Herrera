@@ -5,16 +5,12 @@ function Layout() {
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      {/* HEADER */}
       <header>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
           <div className="container-fluid">
-            {/* LOGO */}
             <Link to="/" className="navbar-brand fw-bold">
               PokeApp
             </Link>
-
-            {/* MENÚ HAMBURGUESA */}
             <button
               className="navbar-toggler"
               type="button"
@@ -26,8 +22,6 @@ function Layout() {
             >
               <span className="navbar-toggler-icon"></span>
             </button>
-
-            {/* NAVBAR */}
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ms-auto">
                 <li className="nav-item">
@@ -59,29 +53,17 @@ function Layout() {
                   >
                     Settings
                   </Link>
-                  {/*<Link
-                    to="/PokemonDetail"
-                    className={`nav-link ${
-                      location.pathname === "/PokemonDetail" ? "active" : ""
-                    }`}
-                  >
-                    Detail
-                  </Link>*/}
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-
-      {/* MAIN */}
       <main className="flex-grow-1 bg-secondary bg-gradient d-flex justify-content-center align-items-center main-padding">
         <div className="container text-center">
           <Outlet />
         </div>
       </main>
-
-      {/* FOOTER */}
       <footer className="bg-dark text-white text-center py-3 fixed-bottom shadow-sm">
         <p className="mb-0">
           &copy; 2025 Trabajo Final Frontend – Diplomatura UTNBA
