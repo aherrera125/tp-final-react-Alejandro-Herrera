@@ -1,41 +1,91 @@
 import { Outlet, Link, useLocation } from "react-router-dom";
-import "../styles/Layout.css";
 
 function Layout() {
   const location = useLocation();
+
   return (
-    <div>
-      <header className="header">
-        <nav className="navigation">
-          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
-            Inicio
-          </Link>
-          <Link
-            to="/Home"
-            className={location.pathname === "Home" ? "active" : ""}
-          >
-            Home
-          </Link>
-          <Link
-            to={"/PokemonList"}
-            className={location.pathname === "PokemonList" ? "active" : ""}
-          >
-            PokemonList
-          </Link>
-          <Link
-            to={"/PokemonDetail"}
-            className={location.pathname === "PokemonDetail" ? "active" : ""}
-          >
-            PokemonDetail
-          </Link>
+    <div className="d-flex flex-column min-vh-100">
+      {/* HEADER */}
+      <header>
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+          <div className="container-fluid">
+            {/* LOGO */}
+            <Link to="/" className="navbar-brand fw-bold">
+              PokeApp
+            </Link>
+
+            {/* MENÚ HAMBURGUESA */}
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            {/* NAVBAR */}
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <ul className="navbar-nav ms-auto">
+                <li className="nav-item">
+                  <Link
+                    to="/"
+                    className={`nav-link ${
+                      location.pathname === "/" ? "active" : ""
+                    }`}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/PokemonList"
+                    className={`nav-link ${
+                      location.pathname === "/PokemonList" ? "active" : ""
+                    }`}
+                  >
+                    List
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    to="/Settings"
+                    className={`nav-link ${
+                      location.pathname === "/Settings" ? "active" : ""
+                    }`}
+                  >
+                    Settings
+                  </Link>
+                  {/*<Link
+                    to="/PokemonDetail"
+                    className={`nav-link ${
+                      location.pathname === "/PokemonDetail" ? "active" : ""
+                    }`}
+                  >
+                    Detail
+                  </Link>*/}
+                </li>
+              </ul>
+            </div>
+          </div>
         </nav>
       </header>
-      <main className="main-content">
-        <Outlet />
+
+      {/* MAIN */}
+      <main className="flex-grow-1 bg-secondary bg-gradient d-flex justify-content-center align-items-center main-padding">
+        <div className="container text-center">
+          <Outlet />
+        </div>
       </main>
 
-      <footer className="footer">
-        <p>&copy; 2025 Trabajo Practico Final</p>
+      {/* FOOTER */}
+      <footer className="bg-dark text-white text-center py-3 fixed-bottom shadow-sm">
+        <p className="mb-0">
+          &copy; 2025 Trabajo Final Frontend – Diplomatura UTNBA
+        </p>
       </footer>
     </div>
   );

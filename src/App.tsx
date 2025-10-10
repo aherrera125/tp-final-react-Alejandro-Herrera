@@ -1,8 +1,11 @@
 import { Routes, Route } from "react-router-dom";
+
+import Layout from "./components/Layout";
 import Home from "./components/Home";
 import PokemonList from "./components/PokemonList";
 import PokemonDetail from "./components/PokemonDetail";
-import Layout from "./components/Layout";
+import Settings from "./components/Settings";
+
 import "./App.css";
 
 function App() {
@@ -10,9 +13,11 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="Home" index element={<Home />} />
-          <Route path="/PokemonList" element={<PokemonList />} />
-          <Route path="/PokemonDetail" element={<PokemonDetail />} />
+          <Route index element={<Home />} />
+          <Route path="PokemonList" element={<PokemonList />}></Route>
+          <Route path="PokemonList/:id" element={<PokemonDetail />} />
+          <Route path="settings" element={<Settings />} />
+          <Route path="PokemonDetail/:id" element={<PokemonDetail />} />
         </Route>
       </Routes>
     </div>
