@@ -1,0 +1,15 @@
+/* Navegación normal (pantallas grandes) */
+.responsive-nav {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-right: 20px; /* separa solo el lado derecho */
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: large;
+}
+
+.main-padding {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
