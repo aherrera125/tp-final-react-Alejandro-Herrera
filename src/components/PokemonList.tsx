@@ -1,25 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-interface PokemonBasic {
-  name: string;
-  url: string;
-}
-
-interface PokemonDetail {
-  id: number;
-  name: string;
-  sprites: {
-    front_default: string;
-  };
-  types: {
-    type: {
-      name: string;
-    };
-  }[];
-  height: number;
-  weight: number;
-}
+import type { PokemonBasic, PokemonDetail } from "../types/PokemonList";
 
 function PokemonList() {
   const [pokemons, setPokemons] = useState<PokemonDetail[]>([]);
@@ -29,7 +10,7 @@ function PokemonList() {
     const loadPokemons = async (): Promise<void> => {
       try {
         const response: Response = await fetch(
-          "https://pokeapi.co/api/v2/pokemon?limit=20"
+          "https://pokeapi.co/api/v2/pokemon?limit=24"
         );
         if (!response.ok) throw new Error("Error to get data");
         const json = await response.json();
