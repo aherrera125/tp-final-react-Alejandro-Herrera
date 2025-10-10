@@ -14,6 +14,10 @@ function Home() {
             className="img-fluid mt-3"
             style={{ width: "120px" }}
           />
+          <p className="lead">
+            Pagina web desarrollada como trabajo final Frontend para la
+            diplomatura en desarrollo web realizada en UTN-BA
+          </p>
         </div>
       </div>
     </section>
