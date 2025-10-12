@@ -59,12 +59,14 @@ function Layout() {
           </div>
         </nav>
       </header>
-      <main className="flex-grow-1 bg-secondary bg-gradient d-flex justify-content-center align-items-center main-padding">
+
+      <main className="flex-grow-1 bg-secondary bg-gradient d-flex justify-content-center main-padding">
         <div className="container text-center">
           <Outlet />
         </div>
       </main>
-      <footer className="bg-dark text-white text-center py-3 fixed-bottom shadow-sm">
+
+      <footer className="bg-dark text-white text-center py-3 shadow-sm mt-auto">
         <p className="mb-0">
           &copy; 2025 Trabajo Final Frontend – Diplomatura UTNBA
         </p>

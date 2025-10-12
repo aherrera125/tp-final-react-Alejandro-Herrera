@@ -1,6 +1,20 @@
+.main-padding {
+  padding-top: 80px; /* altura aproximada de la navbar */
+  padding-bottom: 60px; /* deja espacio para el footer */
+}
+
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100vw; /* ocupa todo el ancho visible */
+  margin: 0;
+  padding: 0;
 }
