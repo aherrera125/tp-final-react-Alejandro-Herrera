@@ -1,6 +1,6 @@
 function Home() {
   return (
-    <section className="text-center text-light">
+    <section className="text-center text-light mt-5 pt-4">
       <div className="row justify-content-center">
         <div className="col-12 col-md-8 col-lg-6">
           <h1 className="display-5 fw-bold mb-3">Bienvenido a PokeApp</h1>

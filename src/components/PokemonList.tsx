@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import type { PokemonBasic, PokemonDetail } from "../types/PokemonList";
+import type { PokemonBasic, PokemonDetail } from "../types/pokemon";
 
 function PokemonList() {
   const [pokemons, setPokemons] = useState<PokemonDetail[]>([]);
@@ -37,14 +37,14 @@ function PokemonList() {
 
   return (
     <section className="text-center text-light">
-      <div className="container">
+      <div className="container-fluid px-4">
         <h1 className="fw-bold mb-4">Pokémons List</h1>
 
         <div className="row g-3 justify-content-center">
           {pokemons.map((pok) => {
             return (
               <div key={pok.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
-                <div className="card bg-dark text-white border-light h-100">
+                <div className="card bg-dark text-white border-light h-100 shadow-sm">
                   <Link
                     to={`/PokemonDetail/${pok.id}`}
                     state={{ pokemon: pok }}

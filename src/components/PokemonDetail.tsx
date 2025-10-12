@@ -11,10 +11,10 @@ function PokemonDetail() {
   }
 
   return (
-    <section className="text-center text-light">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-12 col-md-8 col-lg-12">
+    <section className="text-center text-light mt-5 pt-4">
+      <div className="container-fluid">
+        <div className="row justify-content-center mx-0">
+          <div className="col-12 col-md-8 col-lg-6">
             <div className="card bg-dark text-white border-light shadow">
               <img
                 src={pokemon.sprites.front_default}
@@ -28,9 +28,6 @@ function PokemonDetail() {
                   <br />
                   Altura: {pokemon.height} m | Peso: {pokemon.weight} kg
                 </p>
-                {/*<button className="btn btn-outline-light mt-2">
-                  Ver más detalles
-                </button>*/}
               </div>
             </div>
           </div>
