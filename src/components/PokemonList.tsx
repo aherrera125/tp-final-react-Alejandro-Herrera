@@ -47,7 +47,7 @@ function PokemonList() {
                 <div className="card bg-dark text-white border-light h-100 shadow-sm">
                   <Link
                     to={`/PokemonDetail/${pok.id}`}
-                    state={{ pokemon: pok }}
+                    //state={{ pokemon: pok }}
                   >
                     <img
                       src={pok.sprites.front_default}
