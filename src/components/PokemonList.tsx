@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import type { PokemonBasic, PokemonDetails } from "../types/pokemon";
+import type { PokemonBasic, PokemonDetails } from "../types/types";
 
 function PokemonList() {
   const [pokemons, setPokemons] = useState<PokemonDetails[]>([]);
@@ -45,10 +45,7 @@ function PokemonList() {
             return (
               <div key={pok.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div className="card bg-dark text-white border-light h-100 shadow-sm">
-                  <Link
-                    to={`/PokemonDetail/${pok.id}`}
-                    //state={{ pokemon: pok }}
-                  >
+                  <Link to={`/PokemonDetail/${pok.id}`}>
                     <img
                       src={pok.sprites.front_default}
                       className="card-img-top p-3"
