@@ -1,73 +1,93 @@
-# React + TypeScript + Vite
+# TP-FINAL-REACT-ALEJANDRO-HERRERA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Una aplicación en **React** que muestra un listado de Pokémons usando la **PokeAPI**.  
+Permite ver el detalle de cada Pokémon haciendo clic sobre su carta.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologías utilizadas
 
-## React Compiler
+- ⚛️ **React**
+- 🟦 **TypeScript**
+- 🧭 **React Router**
+- 🎨 **Bootstrap**
+- ⚡ **Vite**
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## ✨ Características principales
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Visualización de una lista de Pokémons obtenida desde la **PokeAPI**.
+- Navegación entre vistas utilizando **React Router**.
+- Posibilidad de ver el **detalle de cada Pokémon** haciendo clic en su carta.
+- Diseño responsive con **Bootstrap**.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Instalación y ejecución
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Cloná el repositorio:
+   ```bash
+   git clone https://github.com/aherrera125/tp-final-react-Alejandro-Herrera.git
+   ```
+2. Accedé al directorio del proyecto:
+   ```bash
+   cd TP-FINAL-REACT-ALEJANDRO-HERRERA
+   ```
+3. Instalá las dependencias:
+   ```bash
+   npm install
+   ```
+4. Instalá Bootstrap:
+   ```bash
+   npm install bootstrap
+   ```
+5. Ejecutá la aplicación en modo desarrollo:
+   ```bash
+   npm run dev
+   ```
+6. Abrí tu navegador en [http://localhost:5173](http://localhost:5173)  
+   (o el puerto que indique la consola).
+
+---
+
+## 📁 Estructura del proyecto
+
+```
+src/
+├── components/
+│   ├── Layout.tsx
+│   ├── Home.tsx
+│   ├── PokemonList.tsx
+│   └── PokemonDetail.tsx
+├── types/
+│   └── pokemons.ts
+├── App.tsx
+├── main.tsx
+└── styles/
+    └── App.css
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📡 API utilizada
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Datos obtenidos de la **[PokeAPI](https://pokeapi.co/)**  
+Endpoint principal utilizado:
+
 ```
+https://pokeapi.co/api/v2/pokemon
+```
+
+---
+
+## 👨‍💻 Autor
+
+**Alejandro Herrera**  
+📅 2025 – Diplomatura en Desarrollo Web Full Stack (UTNBA)
+
+---
+
+## 🧾 Licencia
+
+Este proyecto se desarrolla con fines educativos.
