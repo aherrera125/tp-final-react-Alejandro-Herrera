@@ -15,9 +15,9 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="PokemonList" element={<PokemonList />}></Route>
-          <Route path="PokemonList/:id" element={<PokemonDetail />} />
-          <Route path="Settings" element={<Settings />} />
+          {/*<Route path="PokemonList/:id" element={<PokemonDetail />} />*/}
           <Route path="PokemonDetail/:id" element={<PokemonDetail />} />
+          <Route path="Settings" element={<Settings />} />
         </Route>
       </Routes>
     </div>

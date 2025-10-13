@@ -3,7 +3,7 @@ export interface PokemonBasic {
   url: string;
 }
 
-export interface PokemonDetail {
+export interface PokemonDetails {
   id: number;
   name: string;
   sprites: {
