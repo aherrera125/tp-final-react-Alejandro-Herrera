@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import type { PokemonDetails } from "../types/pokemon";
+import type { PokemonDetails } from "../types/types";
 
 function PokemonDetail() {
   const { id } = useParams();
@@ -26,10 +26,10 @@ function PokemonDetail() {
     return <p className="text-white">No se encontró el Pokémon con ID {id}</p>;
 
   return (
-    <section className="text-center text-light mt-5 pt-4">
+    <section className="text-center text-light">
       <div className="container-fluid">
         <div className="row justify-content-center mx-0">
-          <div className="col-12 col-md-8 col-lg-6">
+          <div className="col-12 col-md-8 col-lg-3">
             <div className="card bg-dark text-white border-light shadow">
               <img
                 src={pokemon.sprites.front_default}

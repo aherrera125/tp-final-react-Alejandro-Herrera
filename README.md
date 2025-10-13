@@ -61,7 +61,7 @@ src/
 │   ├── PokemonList.tsx
 │   └── PokemonDetail.tsx
 ├── types/
-│   └── pokemons.ts
+│   └── types.ts
 ├── App.tsx
 ├── main.tsx
 └── styles/
