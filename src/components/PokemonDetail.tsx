@@ -1,14 +1,29 @@
-import { useLocation, useParams } from "react-router-dom";
-import type { PokemonDetail } from "../types/pokemon";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import type { PokemonDetails } from "../types/pokemon";
 
 function PokemonDetail() {
-  const { state } = useLocation();
-  const { pokemon } = (state || {}) as { pokemon?: PokemonDetail };
   const { id } = useParams();
+  const navigate = useNavigate();
+  const [pokemon, setPokemon] = useState<PokemonDetails | null>(null);
+  const [loading, setLoading] = useState(true);
 
-  if (!pokemon) {
-    return <p>No se encontró el Pokémon con id {id}</p>;
-  }
+  useEffect(() => {
+    if (id) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+        .then((res) => {
+          if (!res.ok) throw new Error("Pokémon no encontrado");
+          return res.json();
+        })
+        .then((data) => setPokemon(data))
+        .catch(() => setPokemon(null))
+        .finally(() => setLoading(false));
+    }
+  }, [id]);
+
+  if (loading) return <p className="text-white">Cargando...</p>;
+  if (!pokemon)
+    return <p className="text-white">No se encontró el Pokémon con ID {id}</p>;
 
   return (
     <section className="text-center text-light mt-5 pt-4">
@@ -28,6 +43,12 @@ function PokemonDetail() {
                   <br />
                   Altura: {pokemon.height} m | Peso: {pokemon.weight} kg
                 </p>
+                <button
+                  className="btn btn-outline-light mt-3"
+                  onClick={() => navigate(-1)}
+                >
+                  ← Volver
+                </button>
               </div>
             </div>
           </div>

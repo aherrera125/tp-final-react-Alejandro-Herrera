@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import type { PokemonBasic, PokemonDetail } from "../types/pokemon";
+import type { PokemonBasic, PokemonDetails } from "../types/pokemon";
 
 function PokemonList() {
-  const [pokemons, setPokemons] = useState<PokemonDetail[]>([]);
+  const [pokemons, setPokemons] = useState<PokemonDetails[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ function PokemonList() {
         if (!response.ok) throw new Error("Error to get data");
         const json = await response.json();
 
-        const detailedPokemons: PokemonDetail[] = await Promise.all(
+        const detailedPokemons: PokemonDetails[] = await Promise.all(
           json.results.map(async (p: PokemonBasic) => {
             const res = await fetch(p.url);
             if (!res.ok) throw new Error("Error to get data");
