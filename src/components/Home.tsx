@@ -1,9 +1,26 @@
-import "../styles/Home.css";
-import image1 from "..//../public/pokemon_one.png";
+import { useEffect, useState } from "react";
+import type { PokemonDetails } from "../types/types";
+import image1 from "../../public/pokemon_one.png";
 import image2 from "../../public/pokemon_two.png";
 import image3 from "../../public/pokemon_three.png";
+import "../styles/Home.css";
 
 function Home() {
+  const [favourite, setFavourite] = useState<PokemonDetails[]>([]);
+
+  useEffect(() => {
+    const raw = localStorage.getItem("favourite");
+    if (raw) {
+      try {
+        const parsed: PokemonDetails[] = JSON.parse(raw);
+        console.log(parsed);
+        setFavourite(parsed);
+      } catch (e) {
+        console.error("Error parseando pokemons", e);
+      }
+    }
+  }, []);
+
   return (
     <section className="text-center text-light">
       <div className="row justify-content-center">
@@ -99,6 +116,36 @@ function Home() {
                 diplomatura en desarrollo web realizada en UTN-BA
               </p>
             </div>
+          </div>
+          {favourite.length > 0 && (
+            <h1 className="display-5 fw-bold mt-5">Favourite Section</h1>
+          )}
+          <div className="row justify-content-center mx-5">
+            {favourite.map((fav) => {
+              return (
+                <div className="card my-3">
+                  <div className="row g-0">
+                    <div className="col-md-4">
+                      <img
+                        src={fav.sprites.front_default}
+                        className="img-fluid rounded-start mt-2"
+                        alt={`Personaje favorito ${fav.name}`}
+                      />
+                    </div>
+                    <div className="col-md-8">
+                      <div className="card-body">
+                        <h5 className="card-title">{fav.name}</h5>
+                        <p className="card-text">
+                          tipo: {fav.types[0].type.name}
+                          <br />
+                          Altura: {fav.height} m | Peso: {fav.weight} kg
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

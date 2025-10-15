@@ -46,12 +46,12 @@ function Layout() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    to="/Settings"
+                    to="/favourite"
                     className={`nav-link ${
                       location.pathname === "/Settings" ? "active" : ""
                     }`}
                   >
-                    Settings
+                    favourite
                   </Link>
                 </li>
               </ul>
