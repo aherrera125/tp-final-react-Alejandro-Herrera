@@ -5,8 +5,19 @@ import type { PokemonBasic, PokemonDetails } from "../types/types";
 function PokemonList() {
   const [pokemons, setPokemons] = useState<PokemonDetails[]>([]);
   const [loading, setLoading] = useState(true);
+  const [favourite, setFavourite] = useState<PokemonDetails[]>([]);
 
   useEffect(() => {
+    const raw = localStorage.getItem("favourite");
+    if (raw) {
+      try {
+        const parsed: PokemonDetails[] = JSON.parse(raw);
+        setFavourite(parsed);
+      } catch (e) {
+        console.error("Error parseando pokemons", e);
+      }
+    }
+
     const loadPokemons = async (): Promise<void> => {
       try {
         const response: Response = await fetch(
@@ -33,7 +44,14 @@ function PokemonList() {
     loadPokemons();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("favourite", JSON.stringify(favourite));
+  }, [favourite]);
+
   if (loading) return <p className="text-light text-center">Cargando...</p>;
+  const fav = (pokemon: PokemonDetails): void => {
+    setFavourite([...favourite, pokemon]);
+  };
 
   return (
     <section className="text-center text-light">
@@ -45,6 +63,14 @@ function PokemonList() {
             return (
               <div key={pok.id} className="col-6 col-sm-4 col-md-3 col-lg-2">
                 <div className="card bg-dark text-white border-light h-100 shadow-sm">
+                  <button
+                    onClick={() => {
+                      fav(pok);
+                    }}
+                    className="btn btn-danger mx-5 mt-3"
+                  >
+                    <i className="bi bi-heart"></i>
+                  </button>
                   <Link to={`/PokemonDetail/${pok.id}`}>
                     <img
                       src={pok.sprites.front_default}

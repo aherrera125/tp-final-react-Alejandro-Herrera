@@ -2,3 +2,7 @@
   height: 400px;
   object-fit: cover;
 }
+
+.max-width {
+  max-width: 540px;
+}

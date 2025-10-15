@@ -7,6 +7,19 @@ function PokemonDetail() {
   const navigate = useNavigate();
   const [pokemon, setPokemon] = useState<PokemonDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const [favourite, setFavourite] = useState<PokemonDetails[]>([]);
+
+  useEffect(() => {
+    const raw = localStorage.getItem("favourite");
+    if (raw) {
+      try {
+        const parsed: PokemonDetails[] = JSON.parse(raw);
+        setFavourite(parsed);
+      } catch (e) {
+        console.error("Error parseando pokemons", e);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (id) {
@@ -21,9 +34,17 @@ function PokemonDetail() {
     }
   }, [id]);
 
+  useEffect(() => {
+    localStorage.setItem("favourite", JSON.stringify(favourite));
+  }, [favourite]);
+
   if (loading) return <p className="text-white">Cargando...</p>;
   if (!pokemon)
     return <p className="text-white">No se encontró el Pokémon con ID {id}</p>;
+
+  const fav = (pokemon: PokemonDetails): void => {
+    setFavourite([...favourite, pokemon]);
+  };
 
   return (
     <section className="text-center text-light">
@@ -31,6 +52,14 @@ function PokemonDetail() {
         <div className="row justify-content-center mx-0">
           <div className="col-12 col-md-8 col-lg-3">
             <div className="card bg-dark text-white border-light shadow">
+              <button
+                onClick={() => {
+                  fav(pokemon);
+                }}
+                className="btn btn-danger mx-5 mt-3"
+              >
+                <i className="bi bi-heart"></i>
+              </button>
               <img
                 src={pokemon.sprites.front_default}
                 className="card-img-top p-4"
