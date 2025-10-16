@@ -42,11 +42,15 @@ Permite ver el detalle de cada Pokémon haciendo clic sobre su carta.
    ```bash
    npm install bootstrap
    ```
-5. Ejecutá la aplicación en modo desarrollo:
+5. Instalá Bootstrap icons:
+   ```bash
+   npm install bootstrap-icons
+   ```
+6. Ejecutá la aplicación en modo desarrollo:
    ```bash
    npm run dev
    ```
-6. Abrí tu navegador en [http://localhost:5173](http://localhost:5173)  
+7. Abrí tu navegador en [http://localhost:5173](http://localhost:5173)  
    (o el puerto que indique la consola).
 
 ---
