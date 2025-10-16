@@ -4,7 +4,6 @@ import Home from "./components/Home";
 import PokemonList from "./components/PokemonList";
 import PokemonDetail from "./components/PokemonDetail";
 import Favorite from "./components/Favorite";
-
 import "./App.css";
 
 function App() {
@@ -12,10 +11,10 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Home />}></Route>
           <Route path="PokemonList" element={<PokemonList />}></Route>
-          <Route path="PokemonDetail/:id" element={<PokemonDetail />} />
-          <Route path="favorite" element={<Favorite />} />
+          <Route path="PokemonDetail/:id" element={<PokemonDetail />}></Route>
+          <Route path="Favorite" element={<Favorite />}></Route>
         </Route>
       </Routes>
     </div>

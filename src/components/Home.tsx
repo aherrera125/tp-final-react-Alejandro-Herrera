@@ -122,17 +122,17 @@ function Home() {
           <div className="row justify-content-center mx-5">
             {favorite.map((fav) => {
               return (
-                <div className="card my-3">
+                <div className="card my-3 ">
                   <div className="row g-0">
                     <div className="col-md-4">
                       <img
                         src={fav.sprites.front_default}
-                        className="img-fluid rounded-start mt-2"
+                        className="img-fluid rounded-start w-100"
                         alt={`Personaje favorito ${fav.name}`}
                       />
                     </div>
                     <div className="col-md-8">
-                      <div className="card-body">
+                      <div className="card-body mt-4">
                         <h5 className="card-title">{fav.name}</h5>
                         <p className="card-text">
                           tipo: {fav.types[0].type.name}

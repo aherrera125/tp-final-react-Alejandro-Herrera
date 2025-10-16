@@ -22,18 +22,6 @@ function PokemonDetail() {
     if (flag) localStorage.setItem("favorites", JSON.stringify(favorite));
   }, [favorite]);
 
-  const addFavorite = (pokemon: PokemonDetails): void => {
-    const existFav: boolean = favorite.some((fav) => fav.id === pokemon.id);
-
-    if (!existFav) {
-      setFavorite([...favorite, pokemon]);
-    } else {
-      const aux: PokemonDetails[] = favorite.filter((f) => f.id !== pokemon.id);
-      setFavorite(aux);
-    }
-    setFlag(true);
-  };
-
   useEffect(() => {
     if (id) {
       fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -46,6 +34,18 @@ function PokemonDetail() {
         .finally(() => setLoading(false));
     }
   }, [id]);
+
+  const addFavorite = (pokemon: PokemonDetails): void => {
+    const existFav: boolean = favorite.some((fav) => fav.id === pokemon.id);
+
+    if (!existFav) {
+      setFavorite([...favorite, pokemon]);
+    } else {
+      const aux: PokemonDetails[] = favorite.filter((f) => f.id !== pokemon.id);
+      setFavorite(aux);
+    }
+    setFlag(true);
+  };
 
   if (loading) return <p className="text-white">Cargando...</p>;
   if (!pokemon)
