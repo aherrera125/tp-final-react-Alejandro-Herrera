@@ -6,15 +6,14 @@ import image3 from "../../public/pokemon_three.png";
 import "../styles/Home.css";
 
 function Home() {
-  const [favourite, setFavourite] = useState<PokemonDetails[]>([]);
+  const [favorite, setFavorite] = useState<PokemonDetails[]>([]);
 
   useEffect(() => {
-    const raw = localStorage.getItem("favourite");
+    const raw = localStorage.getItem("favorites");
     if (raw) {
       try {
         const parsed: PokemonDetails[] = JSON.parse(raw);
-        console.log(parsed);
-        setFavourite(parsed);
+        setFavorite(parsed);
       } catch (e) {
         console.error("Error parseando pokemons", e);
       }
@@ -117,11 +116,11 @@ function Home() {
               </p>
             </div>
           </div>
-          {favourite.length > 0 && (
-            <h1 className="display-5 fw-bold mt-5">Favourite Section</h1>
+          {favorite.length > 0 && (
+            <h1 className="display-5 fw-bold mt-5">Favorite Section</h1>
           )}
           <div className="row justify-content-center mx-5">
-            {favourite.map((fav) => {
+            {favorite.map((fav) => {
               return (
                 <div className="card my-3">
                   <div className="row g-0">

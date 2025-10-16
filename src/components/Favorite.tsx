@@ -1,4 +1,4 @@
-function favourite() {
+function Favorite() {
   return (
     <section className="text-center text-light">
       <div className="container">
@@ -16,4 +16,4 @@ function favourite() {
   );
 }
 
-export default favourite;
+export default Favorite;
