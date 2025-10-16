@@ -5,6 +5,7 @@ Permite ver el detalle de cada Pokémon haciendo clic sobre su carta.
 Permite agregar pokemons favoritos a una lista desde la seccion de lista y la seccion de detalle.
 Dichos pokemons se muestran en la seccion Favoritos en la pantalla Home.
 Asi tambien permite eliminar los pokemons favoritos desde las pantallas lista o detalle.
+Se puede ver en la pantalla Favoritos todos los pokemones seleccionados como tal.
 
 ---
 

@@ -46,9 +46,9 @@ function Layout() {
                 </li>
                 <li className="nav-item">
                   <Link
-                    to="/favorite"
+                    to="/Favorite"
                     className={`nav-link ${
-                      location.pathname === "/favorite" ? "active" : ""
+                      location.pathname === "/Favorite" ? "active" : ""
                     }`}
                   >
                     favorite
